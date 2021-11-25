@@ -1,65 +1,62 @@
+import './App.css';
+import Header from '../src/Header/Header';
+import Listings from '../src/Listings/Listings';
+import AddListings from '../src/components/AddListings';
 import React from "react";
 import {
   BrowserRouter as Router,
-  useRoutes,
+  Route,
+  Routes,
+  Switch
 } from "react-router-dom";
-import Listings from '../src/Listings/Listings';
-import AddListings from '../src/components/AddListings';
-import Header from '../src/Header/Header';
+import Drawer from '../src/components/Drawer.js';
 
-const App = () => {
-  let routes = useRoutes([
-    { path: "/", element: <AppWrapper /> },
-    { path: "/listings", element: <Listings /> },
-    { path: "add-listings", element: <AddListings /> },
-  ]);
-  return routes;
-};
 
-const AppWrapper = () => {
-  return (
+
+function App () {
+  return (<>
     <Router>
-      <Header/>
-      <App />
+      <Drawer />
+      <div>
+        {/* <Header /> */}
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Listings/>
+            </Route>
+            <Route path="/listings">
+            </Route>
+            <Route path="/add-listings">
+              <AddListings />
+            </Route>
+
+            {/* wip */}
+            <Route  path="/messages">
+              {/* <messages/> */}
+            </Route>
+            <Route path="/Profile">
+              {/* profile */}
+            </Route>
+            <Route path="/contact">
+              {/* <contact /> */}
+            </Route>
+          </Switch>
+        {/* < /> */}
+        </div>
+    </div>
     </Router>
-  );
-};
 
-export default AppWrapper;
-
-
-
-// import './App.css';
-// import Header from '../src/Header/Header';
-// import Listings from '../src/Listings/Listings';
-// import AddListings from '../src/components/AddListings';
-// import React from "react";
-// import {
-//   Route,
-//   Routes
-// } from "react-router-dom";
-
-// export default function App() {
-//   return (
-//     <>
-//     <Header /> 
-//     <Routes>
-//       <Route path="/" element={<App />} />
-//       <Route path="listings" element={<Listings />} />
-//       <Route path="add-listings" element={<AddListings />} />
-//     </Routes>
-//     </>
-//   );
-// }
+  </>)
+}
 
 // function App() {
 //   return (
 //     <div>
-//       <Header />
+//       {/* <Header /> */}
 //       <Listings />
 //       {/* <AddListings /> */}
 //     </div>
 //   );
 // }
 
-// export default App;
+export default App;
