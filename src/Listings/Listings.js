@@ -14,17 +14,17 @@ import CardMedia from '@mui/material/CardMedia';
 function Listings() {
   return (
       <Container maxWidth="sm">
-            <Box
-            sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            '& > :not(style)': {
-                m: 1,
-                width: 500,
-                height: 128,
-            },
-            }}
-            >
+        <Box
+        sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+            m: 1,
+            width: 500,
+        height: 128,
+        },
+        }}
+        >
             <Paper>
                 <Card sx={{ minWidth: 250 }}>
                     <CardContent>

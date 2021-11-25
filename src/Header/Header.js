@@ -15,6 +15,15 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link } from 'react-router-dom';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,6 +68,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [state, setState] = React.useState({
+    left: false
+  });
+
+
+  const toggleDrawer = (left, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, left: open });
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,6 +100,37 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const list = (left) => (
+    <Box
+      sx={{ width:  250 }}
+      role="presentation"
+      onClick={toggleDrawer(left, false)}
+      onKeyDown={toggleDrawer(left, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -97,9 +148,15 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My Account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My Listings</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+          Profile
+        </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+            My Account
+    </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+          <Link to='/'>My Listings</Link>
+        </MenuItem>
     </Menu>
   );
 
@@ -165,6 +222,8 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={toggleDrawer(left, false)}
+            onKeyDown={toggleDrawer(left, false)}
           >
             <MenuIcon />
           </IconButton>

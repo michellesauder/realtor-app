@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 
 export default function AddListings() {
   return (
-      <Container>
+      <Container maxWidth="sm">
         <Box
         component="form"
         sx={{
