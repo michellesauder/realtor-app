@@ -222,8 +222,8 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
-            onClick={toggleDrawer(left, false)}
-            onKeyDown={toggleDrawer(left, false)}
+            // onClick={toggleDrawer(left, false)}
+            // onKeyDown={toggleDrawer(left, false)}
           >
             <MenuIcon />
           </IconButton>
