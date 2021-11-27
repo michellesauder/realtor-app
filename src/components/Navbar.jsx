@@ -15,15 +15,6 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Link } from 'react-router-dom';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -65,9 +56,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function Header(props) {
+function Navbar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  console.log(props.toggleDrawer, props.anchor, 'fndsjakfhdjsakfh')
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -87,6 +81,7 @@ function Header(props) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -104,15 +99,8 @@ function Header(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>
-          Profile
-        </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-            My Account
-    </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-          <Link to='/'>My Listings</Link>
-        </MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -170,7 +158,7 @@ function Header(props) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color='secondary'>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -178,8 +166,7 @@ function Header(props) {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
-            onClick={props.toggleDrawer(props.anchor, false)}
-            onKeyDown={props.toggleDrawer(props.anchor, false)}
+            onClick={props.toggleDrawer('open')}
           >
             <MenuIcon />
           </IconButton>
@@ -189,7 +176,7 @@ function Header(props) {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Virtual Realtor
+            Virtual Relator
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -247,5 +234,4 @@ function Header(props) {
     </Box>
   );
 }
-
-export default Header
+export default Navbar

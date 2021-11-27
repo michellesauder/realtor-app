@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
+
+import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -9,26 +9,17 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
 
-export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    left: false
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
+function LeftDrawer(props) {
+  console.log(props.toggleDrawer, props.anchor, 'props')
+  const list = () => (
     <Box
-      sx={{ width: 250 }}
+      // sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -56,18 +47,15 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
+      {
+        <React.Fragment>
+          <Drawer open={props.anchor} onClose={props.toggleDrawer('', false)}>
+            {list()}
           </Drawer>
         </React.Fragment>
-      ))}
+      }
     </div>
   );
 }
+
+export default LeftDrawer
