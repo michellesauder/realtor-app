@@ -60,7 +60,7 @@ function Navbar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  console.log(props.toggleDrawer, props.anchor, 'fndsjakfhdjsakfh')
+  // console.log(props.toggleDrawer, props.anchor, 'fndsjakfhdjsakfh')
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);

@@ -1,22 +1,22 @@
 import './App.css';
-import Header from '../src/Header/Header';
+// import Header from '../src/Header/Header';
 import Listings from '../src/Listings/Listings';
 import AddListings from '../src/components/AddListings';
 import Home from '../src/Home/Home';
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
+  // Routes,
+  // Link,
   Switch
 } from "react-router-dom";
-import LeftDrawer from '../src/components/Drawer.js';
+// import LeftDrawer from '../src/components/Drawer.js';
 import Navbar from '../src/components/Navbar.jsx';
 import Drawer from '../src/components/Drawer.js';
 import * as React from 'react';
 
 function App () {
   const [state, setState] = React.useState({
-    left: false,
     anchor: false
   });
 

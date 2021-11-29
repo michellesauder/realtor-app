@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Drawer from '@mui/material/Drawer';
 // import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -15,17 +15,34 @@ import HomeIcon from '@mui/icons-material/Home';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { Link } from "react-router-dom";
+// import Listings from '../Listings/Listings';
 
 function LeftDrawer(props) {
+  const link = (path) => {
+    switch(path) {
+      case 'Listings':
+        return '/listings'
+      case 'Messaging':
+        return '/messages'
+      case 'Starred Listings':
+        return '/starred-listings'
+      case 'Add Listings':
+        return '/add-listings'
+      default:
+        return '/'
+    }
+  }
+
   const list = () => (
     <Box role="presentation" sx={{ width: 250 }}>
       <List>
         {['Listings', 'Messaging', 'Starred Listings', 'Add Listings'].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button key={text} >
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <NoteAltIcon />}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary = { <Link to={link(text)} style={{ textDecoration: 'none', color: '#000000' }}> {text} </Link> } />
           </ListItem>
         ))}
       </List>
