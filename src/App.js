@@ -2,6 +2,7 @@ import './App.css';
 import Header from '../src/Header/Header';
 import Listings from '../src/Listings/Listings';
 import AddListings from '../src/components/AddListings';
+import Home from '../src/Home/Home';
 import {
   BrowserRouter as Router,
   Route,
@@ -27,45 +28,17 @@ function App () {
     <Router>
       <Drawer toggleDrawer={toggleDrawer} anchor={state.anchor}/>
       <Navbar toggleDrawer={toggleDrawer} anchor={state.anchor}/>
-      <div>
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Listings/>
-            </Route>
-            <Route path="/listings">
-            </Route>
-            <Route path="/add-listings">
-              <AddListings />
-            </Route>
-
-            {/* wip */}
-            <Route  path="/messages">
-              {/* <messages/> */}
-            </Route>
-            <Route path="/Profile">
-              {/* profile */}
-            </Route>
-            <Route path="/contact">
-              {/* <contact /> */}
-            </Route>
-          </Switch>
-        {/* < /> */}
-        </div>
-    </div>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/listings" component={Listings}></Route>
+        <Route path="/add-listings" component={AddListings}></Route>
+        {/* <Route path="/messages" component={Messages}></Route> */}
+        {/* <Route path="/profile" component={Profile}></Route> */}
+        {/* <Route path="/account" component={Account}></Route> */}
+        {/* <Route path="/lawyer-portal" component={Lawyer-Portal}></Route> */}
+      </Switch>
     </Router>
-
   </>)
 }
-
-// function App() {
-//   return (
-//     <div>
-//       {/* <Header /> */}
-//       <Listings />
-//       {/* <AddListings /> */}
-//     </div>
-//   );
-// }
 
 export default App;
