@@ -59,13 +59,15 @@ function LeftDrawer(props) {
     <Box role="presentation" sx={{ width: 250 }}>
       <List>
         {['Listings', 'Messaging', 'Starred Listings', 'Add Listings'].map((text, index) => (
-          <ListItem button key={text} 
+          <ListItem button key={text} onClick={props.toggleDrawer('', false)}
             // onClick={ handleHistory() }
             >
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <NoteAltIcon />}
             </ListItemIcon>
-            <ListItemText primary = { <Link to={link(text)} style={{ textDecoration: 'none', color: '#000000' }}> {text} </Link> } />
+            <ListItemText primary = { 
+            <Link to={link(text)} style={{ textDecoration: 'none', color: '#000000' }}> {text} </Link> 
+            } />
           </ListItem>
         ))}
       </List>

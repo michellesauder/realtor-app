@@ -8,7 +8,7 @@ import {
   Route,
   // useHistory,
   // Routes,
-  // Link,
+  Link,
   Switch
 } from "react-router-dom";
 // import LeftDrawer from '../src/components/Drawer.js';
@@ -22,6 +22,23 @@ function App () {
   const [state, setState] = React.useState({
     anchor: false
   });
+
+  const link = (path) => {
+    if(path){
+      switch(path) {
+        case 'Listings':
+          return '/listings'
+        case 'Messaging':
+          return '/messages'
+        case 'Starred Listings':
+          return '/starred-listings'
+        case 'Add Listings':
+          return '/add-listings';
+        default:
+          return '/';
+      }
+    }
+  }
 
   const toggleDrawer = (open) => (event) => {
     setState({ ...state, anchor:open });
