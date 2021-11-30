@@ -1,8 +1,8 @@
 import './App.css';
 // import Header from '../src/Header/Header';
-import Listings from '../src/Listings/Listings';
+import Listings from './Listings/Listings';
 import AddListings from './AddListings/AddListings';
-import Home from '../src/Home/Home';
+import Home from './Home/Home';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,8 +12,8 @@ import {
   Switch
 } from "react-router-dom";
 // import LeftDrawer from '../src/components/Drawer.js';
-import Navbar from '../src/components/Navbar.jsx';
-import Drawer from '../src/components/Drawer.js';
+import Navbar from './components/Navbar.jsx';
+import Drawer from './components/Drawer.jsx';
 import * as React from 'react';
 
 function App () {
