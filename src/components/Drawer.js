@@ -15,10 +15,29 @@ import HomeIcon from '@mui/icons-material/Home';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // import Listings from '../Listings/Listings';
 
+
 function LeftDrawer(props) {
+
+  let history = useHistory();
+
+  const handleHistory = (path) => {
+    switch(path) {
+      case 'Listings':
+        return history.push("/listings");
+      case 'Messaging':
+        return history.push("/messaging");
+      case 'Starred Listings':
+        return history.push("/starred-listings");
+      case 'Add Listings':
+        return history.push("/add-listings");
+      default:
+        return history.push("/home");
+    }
+  }
+
   const link = (path) => {
     switch(path) {
       case 'Listings':
@@ -38,7 +57,7 @@ function LeftDrawer(props) {
     <Box role="presentation" sx={{ width: 250 }}>
       <List>
         {['Listings', 'Messaging', 'Starred Listings', 'Add Listings'].map((text, index) => (
-          <ListItem button key={text} >
+          <ListItem button key={text} onClick={ handleHistory() }>
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <NoteAltIcon />}
             </ListItemIcon>

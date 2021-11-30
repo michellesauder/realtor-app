@@ -6,6 +6,7 @@ import Home from '../src/Home/Home';
 import {
   BrowserRouter as Router,
   Route,
+  // useHistory,
   // Routes,
   // Link,
   Switch
@@ -26,7 +27,7 @@ function App () {
 
   return (<>
     <Router>
-      <Drawer toggleDrawer={toggleDrawer} anchor={state.anchor}/>
+      <Drawer toggleDrawer={toggleDrawer} anchor={state.anchor} />
       <Navbar toggleDrawer={toggleDrawer} anchor={state.anchor}/>
       <Switch>
         <Route exact path="/" component={Home}></Route>
