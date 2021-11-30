@@ -15,28 +15,30 @@ import HomeIcon from '@mui/icons-material/Home';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import { Link, useHistory } from "react-router-dom";
+import { Link, 
+  // useHistory 
+} from "react-router-dom";
 // import Listings from '../Listings/Listings';
 
 
 function LeftDrawer(props) {
 
-  let history = useHistory();
+  // let history = useHistory();
 
-  const handleHistory = (path) => {
-    switch(path) {
-      case 'Listings':
-        return history.push("/listings");
-      case 'Messaging':
-        return history.push("/messaging");
-      case 'Starred Listings':
-        return history.push("/starred-listings");
-      case 'Add Listings':
-        return history.push("/add-listings");
-      default:
-        return history.push("/");
-    }
-  }
+  // const handleHistory = (path) => {
+  //   switch(path) {
+  //     case 'Listings':
+  //       return history.push("/listings");
+  //     case 'Messaging':
+  //       return history.push("/messaging");
+  //     case 'Starred Listings':
+  //       return history.push("/starred-listings");
+  //     case 'Add Listings':
+  //       return history.push("/add-listings");
+  //     default:
+  //       return history.push("/");
+  //   }
+  // }
 
   const link = (path) => {
     switch(path) {
