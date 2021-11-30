@@ -34,7 +34,7 @@ function LeftDrawer(props) {
       case 'Add Listings':
         return history.push("/add-listings");
       default:
-        return history.push("/home");
+        return history.push("/");
     }
   }
 
@@ -47,9 +47,9 @@ function LeftDrawer(props) {
       case 'Starred Listings':
         return '/starred-listings'
       case 'Add Listings':
-        return '/add-listings'
+        return '/add-listings';
       default:
-        return '/'
+        return '/';
     }
   }
 
@@ -57,7 +57,9 @@ function LeftDrawer(props) {
     <Box role="presentation" sx={{ width: 250 }}>
       <List>
         {['Listings', 'Messaging', 'Starred Listings', 'Add Listings'].map((text, index) => (
-          <ListItem button key={text} onClick={ handleHistory() }>
+          <ListItem button key={text} 
+            // onClick={ handleHistory() }
+            >
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <NoteAltIcon />}
             </ListItemIcon>

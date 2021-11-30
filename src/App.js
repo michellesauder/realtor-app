@@ -1,7 +1,7 @@
 import './App.css';
 // import Header from '../src/Header/Header';
 import Listings from '../src/Listings/Listings';
-import AddListings from '../src/components/AddListings';
+import AddListings from './AddListings/AddListings';
 import Home from '../src/Home/Home';
 import {
   BrowserRouter as Router,
