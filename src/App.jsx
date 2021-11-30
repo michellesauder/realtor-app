@@ -16,6 +16,7 @@ import Navbar from './components/Navbar.jsx';
 import Drawer from './components/Drawer.jsx';
 import * as React from 'react';
 import Login from './Login/Login';
+import Signup from './Signup/Signup';
 
 function App () {
   const [state, setState] = React.useState({
@@ -35,6 +36,7 @@ function App () {
         <Route path="/listings" component={Listings}></Route>
         <Route path="/add-listings" component={AddListings}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/signup" component={Signup}></Route>
         {/* <Route path="/messages" component={Messages}></Route> */}
         {/* <Route path="/profile" component={Profile}></Route> */}
         {/* <Route path="/account" component={Account}></Route> */}
