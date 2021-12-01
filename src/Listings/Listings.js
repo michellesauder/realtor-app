@@ -13,7 +13,7 @@ import CardMedia from '@mui/material/CardMedia';
 
 function Listings() {
   return (
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" style={{marginTop:'10vh'}}>
         <Box
         sx={{
         display: 'flex',
