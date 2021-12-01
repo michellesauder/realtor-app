@@ -8,7 +8,7 @@ import {
   Route,
   // useHistory,
   // Routes,
-  Link,
+  // Link,
   Switch
 } from "react-router-dom";
 import Navbar from './components/Navbar.jsx';
@@ -16,28 +16,30 @@ import Drawer from './components/Drawer.jsx';
 import * as React from 'react';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import Messaging from './Messaging/Messaging';
 
 function App () {
   const [state, setState] = React.useState({
     anchor: false
   });
 
-  const link = (path) => {
-    if(path){
-      switch(path) {
-        case 'Listings':
-          return '/listings'
-        case 'Messaging':
-          return '/messages'
-        case 'Starred Listings':
-          return '/starred-listings'
-        case 'Add Listings':
-          return '/add-listings';
-        default:
-          return '/';
-      }
-    }
-  }
+  
+  // const link = (path) => {
+  //   if(path){
+  //     switch(path) {
+  //       case 'Listings':
+  //         return '/listings'
+  //       case 'Messaging':
+  //         return '/messages'
+  //       case 'Starred Listings':
+  //         return '/starred-listings'
+  //       case 'Add Listings':
+  //         return '/add-listings';
+  //       default:
+  //         return '/';
+  //     }
+  //   }
+  // }
 
   const toggleDrawer = (open) => (event) => {
     setState({ ...state, anchor:open });
@@ -53,7 +55,7 @@ function App () {
         <Route path="/add-listings" component={AddListings}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/signup" component={Signup}></Route>
-        {/* <Route path="/messages" component={Messages}></Route> */}
+        <Route path="/messaging" component={Messaging}></Route>
         {/* <Route path="/profile" component={Profile}></Route> */}
         {/* <Route path="/account" component={Account}></Route> */}
         {/* <Route path="/lawyer-portal" component={Lawyer-Portal}></Route> */}
