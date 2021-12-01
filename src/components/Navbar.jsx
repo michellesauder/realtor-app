@@ -16,6 +16,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LogoutIcon from '@mui/icons-material/Logout';
+import {
+  Link
+} from "react-router-dom";
+import BungalowIcon from '@mui/icons-material/Bungalow';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,8 +64,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function Navbar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  // console.log(props.toggleDrawer, props.anchor, 'fndsjakfhdjsakfh')
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -189,7 +191,7 @@ function Navbar(props) {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Virtual Relator
+            <Link to="/" style={{textDecoration: 'none', color: 'white', textAlign: 'center'}}> <BungalowIcon/> Virtual Realtor </Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
