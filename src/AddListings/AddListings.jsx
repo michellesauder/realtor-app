@@ -5,6 +5,8 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Button from '@mui/material/Button';
+import NextPlanIcon from '@mui/icons-material/NextPlan';
 
 const currencies = [
     {
@@ -27,15 +29,11 @@ const currencies = [
 
 export default function AddListings() {
     const [currency, setCurrency] = React.useState('EUR');
-    const [steps, setSteps] = React.useState(['Property Info', 'Realtor Info', 'Lending Info', 'Lawyer Info']);
-
+    const [steps, setSteps] = React.useState(0);
 
     const handleChange = (event) => {
       setCurrency(event.target.value);
     };
-    const handleNext = (event) => {
-        setSteps({ step: steps+1 });
-      };
 
     const propertyInfo = () => {
         return (<>        
@@ -190,9 +188,32 @@ export default function AddListings() {
         )
     }
 
-    const tabs = () => {
-        return (<Tabs value={''} onChange={handleNext} aria-label="nav tabs" style={{ marginTop: '4vh', display: 'flex', justifyContent: 'center' }}>
-            <Tab label="Property"  />
+    const review = () => {
+        return <div>
+            form data goes here
+        </div>
+    }
+
+    const currentSteps = () => {
+        switch(steps){
+            case 0:
+                return propertyInfo()
+            case 1:
+                return realtorInfo()
+            case 2:
+                return lawyerInfo()
+            case 3:
+                return notes()
+            case 4: 
+                return review()
+            default:
+                return
+        }
+    }
+
+    const tabs = (steps) => {
+        return (<Tabs value={''} aria-label="nav tabs" style={{ marginTop: '4vh', display: 'flex', justifyContent: 'center' }}>
+            <Tab label="Property" />
             <Tab label="Realtor"  />
             <Tab label="Lending"  />
             <Tab label="Lawyer"  />
@@ -212,11 +233,12 @@ export default function AddListings() {
         autoComplete="on"
         >
         <img style={{maxWidth: 500}} src="/static/how-to-add-property-in-ga-1-625x300.png" alt=""/>
-        {propertyInfo()}
-        {realtorInfo()}
-        {lawyerInfo()}
-        {notes()}
-
+        {currentSteps()}
+        <div style={{width:"100%", marginBottom: `10vh`}}>
+            <Button variant="contained" endIcon={<NextPlanIcon onClick={() => { steps <= 5 ? setSteps(steps + 1) : setSteps(0)}}/>}>
+                Next
+            </Button>
+        </div>
         </Box>
       </Container>
   );
