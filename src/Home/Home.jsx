@@ -156,7 +156,7 @@ const chooseChart = (chart) => {
               justifyContent: 'center', 
               textAlign: 'center'  }}>
               {/* wip will add charts to this */}
-              <Tabs value={''} onChange={handleChange} aria-label="nav tabs" style={{ marginTop: '4vh' }}>
+              <Tabs value={''} onChange={handleChange} aria-label="nav tabs" style={{ marginTop: '4vh', display: 'flex', justifyContent: 'space-around' }}>
                 <Tab label="Profile" href="/profile" />
                 <Tab label="Account" href="/account" />
                 <Tab label="Stats" href="/" />
