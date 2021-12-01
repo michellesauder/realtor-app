@@ -8,9 +8,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CardMedia from '@mui/material/CardMedia';
 
-
 function Login(props) {
-
     const card = (
         <React.Fragment>
           <CardContent style={{ textAlign: 'center' }}>

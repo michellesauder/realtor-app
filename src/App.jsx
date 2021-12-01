@@ -11,7 +11,6 @@ import {
   Link,
   Switch
 } from "react-router-dom";
-// import LeftDrawer from '../src/components/Drawer.js';
 import Navbar from './components/Navbar.jsx';
 import Drawer from './components/Drawer.jsx';
 import * as React from 'react';
