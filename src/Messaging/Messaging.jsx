@@ -46,9 +46,9 @@ function Messaging(props) {
     return (
         <React.Fragment>
             <CssBaseline />
-            <Container maxWidth="sm">
-                <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', display: 'flex', textAlign: 'center', flexDirection: 'column'}} >
-                    <img src="/static/email_mail_box_envelope_send_with_flag.jpeg" />
+            <Container maxWidth="sm" style={{marginTop: `10vh`}}>
+                <Box sx={{ bgcolor: '#fff', height: '100vh', display: 'flex', textAlign: 'center', flexDirection: 'column'}} >
+                    <img src="/static/digital-direct-mail-og.png" alt=""/>
                     <TextField  fullWidth id="filled-basic" label="Subject" variant="filled" />
                     <CustomInput aria-label="Message" />
                     <Button variant="contained">Submit</Button>
