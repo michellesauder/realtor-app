@@ -45,7 +45,7 @@ function LeftDrawer(props) {
       case 'Listings':
         return '/listings'
       case 'Messaging':
-        return '/messages'
+        return '/messaging'
       case 'Starred Listings':
         return '/starred-listings'
       case 'Add Listings':
