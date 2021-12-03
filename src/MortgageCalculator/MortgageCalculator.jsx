@@ -49,8 +49,9 @@ const currencies = [
   ];
 
 function MortgageCalculator() {
+
     const basics = () => {
-        return <div>Second Component</div>
+        return <div>Is this your first property?</div>
         }
     const debt = () => {
         return <div>
@@ -131,11 +132,18 @@ function MortgageCalculator() {
         { key: 'firstStep', label: 'Basics', isDone: true, component: basics },
         { key: 'secondStep', label: 'Debt', isDone: false, component: debt },
         { key: 'thirdStep', label: 'Potential Property', isDone: false, component: potentialProperty },
-        { key: 'finalStep', label: 'tDSR', isDone: false, component: tDSR },
-        { key: 'finalStep', label: '5', isDone: false, component: mortgageAmount },
+        { key: 'finalStep', label: 'TDSR', isDone: false, component: tDSR },
+        { key: 'finalStep', label: 'Mortgage Amount', isDone: true, component: mortgageAmount },
       ]);   
-      
+
     const [activeStep, setActiveStep] = React.useState(steps[0]);
+
+    const handleEmailChange: function(e) {
+        this.setState({email: e.target.value});
+     }
+    const handlePasswordChange: function(e) {
+        this.setState({password: e.target.value});
+     },
 
     const handleChange = (event) => {
       setCurrency(event.target.value);
