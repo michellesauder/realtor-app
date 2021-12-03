@@ -17,6 +17,7 @@ import * as React from 'react';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import Messaging from './Messaging/Messaging';
+import MortgageCalculator from './MortgageCalculator/MortgageCalculator';
 
 function App () {
   const [state, setState] = React.useState({
@@ -56,6 +57,7 @@ function App () {
         <Route path="/login" component={Login}></Route>
         <Route path="/signup" component={Signup}></Route>
         <Route path="/messaging" component={Messaging}></Route>
+        <Route path="/mortgage-calculator" component={MortgageCalculator}></Route>
         {/* <Route path="/profile" component={Profile}></Route> */}
         {/* <Route path="/account" component={Account}></Route> */}
         {/* <Route path="/lawyer-portal" component={Lawyer-Portal}></Route> */}

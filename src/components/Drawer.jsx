@@ -50,6 +50,8 @@ function LeftDrawer(props) {
         return '/starred-listings'
       case 'Add Listings':
         return '/add-listings';
+      case 'Mortgage Calculator':
+        return '/mortgage-calculator';
       default:
         return '/';
     }
@@ -58,9 +60,8 @@ function LeftDrawer(props) {
   const list = () => (
     <Box role="presentation" sx={{ width: 250 }}>
       <List>
-        {['Listings', 'Messaging', 'Starred Listings', 'Add Listings'].map((text, index) => (
+        {['Listings', 'Messaging', 'Starred Listings', 'Add Listings', 'Mortgage Calculator'].map((text, index) => (
           <ListItem button key={text} onClick={props.toggleDrawer('', false)}
-            // onClick={ handleHistory() }
             >
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <NoteAltIcon />}
