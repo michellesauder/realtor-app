@@ -138,13 +138,6 @@ function MortgageCalculator() {
 
     const [activeStep, setActiveStep] = React.useState(steps[0]);
 
-    const handleEmailChange: function(e) {
-        this.setState({email: e.target.value});
-     }
-    const handlePasswordChange: function(e) {
-        this.setState({password: e.target.value});
-     },
-
     const handleChange = (event) => {
       setCurrency(event.target.value);
     };
