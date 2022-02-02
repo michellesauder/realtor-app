@@ -24,45 +24,41 @@ function App () {
     anchor: false
   });
 
-  
-  // const link = (path) => {
-  //   if(path){
-  //     switch(path) {
-  //       case 'Listings':
-  //         return '/listings'
-  //       case 'Messaging':
-  //         return '/messages'
-  //       case 'Starred Listings':
-  //         return '/starred-listings'
-  //       case 'Add Listings':
-  //         return '/add-listings';
-  //       default:
-  //         return '/';
-  //     }
-  //   }
-  // }
-
   const toggleDrawer = (open) => (event) => {
     setState({ ...state, anchor:open });
   };
 
+  // Q8.	Write a function that takes a string as an input and returns a data 
+  // structure that indicates the number of occurrences of every word in the input string. 
+  // Letter case (upper/lower) must be ignored when counting words.
+
+
+let x = 1 > 0
+
+// let y = x.sort()
+
+
+
   return (<>
-    <Router>
-      <Drawer toggleDrawer={toggleDrawer} anchor={state.anchor} />
-      <Navbar toggleDrawer={toggleDrawer} anchor={state.anchor}/>
-      <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/listings" component={Listings}></Route>
-        <Route path="/add-listings" component={AddListings}></Route>
-        <Route path="/login" component={Login}></Route>
-        <Route path="/signup" component={Signup}></Route>
-        <Route path="/messaging" component={Messaging}></Route>
-        <Route path="/mortgage-calculator" component={MortgageCalculator}></Route>
-        {/* <Route path="/profile" component={Profile}></Route> */}
-        {/* <Route path="/account" component={Account}></Route> */}
-        {/* <Route path="/lawyer-portal" component={Lawyer-Portal}></Route> */}
-      </Switch>
-    </Router>
+
+  {console.log(x)}
+
+
+  {/* <div class="container">
+    <div class="col1">
+      fjkdlsjfds
+
+    </div>
+    <div class='col2'>
+      fjkdsljfs
+
+    </div>
+    <div class='col3'>
+      fnjdsfhjs
+
+    </div>
+  </div> */}
+
   </>)
 }
 
